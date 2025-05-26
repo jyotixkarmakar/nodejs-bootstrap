@@ -1,5 +1,6 @@
 var express = require('express');
 var things = require('./things.js');
+var inputURL = require('./inputURL.js');
 
 var app = express();
 
@@ -15,5 +16,6 @@ app.post('/hello', function(req, res){
    res.send("You just called the post method at '/hello'!\n");
 });
 app.use('/things', things);
+app.use('/a', inputURL);
 
 app.listen(3000);
