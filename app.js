@@ -15,6 +15,11 @@ app.get('/hello', function(req, res){
 app.post('/hello', function(req, res){
    res.send("You just called the post method at '/hello'!\n");
 });
+app.use('/a', function(req, res, next){
+    req.params.id=123;
+   console.log("A request for things received at " + Date.now());
+   next();
+});
 app.use('/things', things);
 app.use('/a', inputURL);
 
